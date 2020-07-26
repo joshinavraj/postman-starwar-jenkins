@@ -1,0 +1,15 @@
+{
+  "name": "postmanjenkins",
+  "version": "1.0.0",
+  "description": "Project for storing starwar api using newman postman",
+    "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "api-tests": "echo \"newman run tests/loyalti_starwar_collection.json"
+  },
+  "author": "Nava Raj",
+    "dependencies": {
+    "newman": "^5.1.2"
+  }
+}
