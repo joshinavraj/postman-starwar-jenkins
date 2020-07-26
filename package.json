@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-    "api-tests": "newman run tests/loyalti_starwar_collection.json"
+    "api-tests": "newman run tests/loyalti_starwar_collection.json --disable-unicode"
   },
   "author": "Nava Raj",
     "dependencies": {
