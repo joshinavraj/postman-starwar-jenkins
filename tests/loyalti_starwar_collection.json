@@ -32,6 +32,12 @@
 							"});\r",
 							"     }\r",
 							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
 							"  pm.test(\"Status code of Star War Characters 1st page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
@@ -725,6 +731,35 @@
 			"response": []
 		},
 		{
+			"name": "Star Wars characters wrong spelling",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d825bbea-0106-440b-91f4-d994b67fa550",
+						"exec": [
+							"pm.test(\"Status code is 404 ,No existing page\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://swapi.dev/api/peop"
+			},
+			"response": []
+		},
+		{
 			"name": "Star Wars characters in Page 2",
 			"event": [
 				{
@@ -748,11 +783,18 @@
 							"    pm.expect(nameArray.length).to.eql(10);\r",
 							"});\r",
 							"     }\r",
+							"  findPersonNames();   \r",
+							"  pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});   \r",
 							"\r",
 							"  pm.test(\"Status code of Star War Characters 2nd page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"findPersonNames();\r",
+							"\r",
 							"pm.test(\"Contain 82 characters from the Star Wars characters 2nd page\", function () {\r",
 							"   var people = pm.response.json();\r",
 							"    // console.log(\"people: \"+people.count);\r",
@@ -1472,6 +1514,12 @@
 							"    pm.expect(nameArray.length).to.eql(10);\r",
 							"});\r",
 							"     }\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});  \r",
 							"\r",
 							"  pm.test(\"Status code of Star War Characters 3rd page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2148,9 +2196,21 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
 				"url": {
 					"raw": "https://swapi.dev/api/people?page=3",
 					"protocol": "https",
@@ -2196,6 +2256,12 @@
 							"    pm.expect(nameArray.length).to.eql(10);\r",
 							"});\r",
 							"     }\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});\r",
 							"\r",
 							"  pm.test(\"Status code of Star War Characters 4th page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2865,11 +2931,17 @@
 							"    pm.expect(nameArray.length).to.eql(10);\r",
 							"});\r",
 							"     }\r",
-							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});  \r",
+							"findPersonNames();\r",
 							"  pm.test(\"Status code of Star War Characters 5th page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"findPersonNames();\r",
+							"\r",
 							"pm.test(\"Contain 82 characters the Star Wars characters 5th page\", function () {\r",
 							"   var people = pm.response.json();\r",
 							"    // console.log(\"people: \"+people.count);\r",
@@ -3539,6 +3611,12 @@
 							"  pm.test(\"Status code of Star War Characters 6th page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"findPersonNames();\r",
 							"pm.test(\"Contain 82 characters from the Star Wars characters 6th page\", function () {\r",
 							"   var people = pm.response.json();\r",
@@ -4205,6 +4283,12 @@
 							"    pm.expect(nameArray.length).to.eql(10);\r",
 							"});\r",
 							"     }\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"\r",
 							"  pm.test(\"Status code of Star War Characters 7th page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -4878,6 +4962,12 @@
 							"  pm.test(\"Status code of Star War Characters 8th page is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"findPersonNames();\r",
 							"pm.test(\"Contain 82 characters from the Star Wars characters 8th page\", function () {\r",
 							"   var people = pm.response.json();\r",
@@ -5547,6 +5637,12 @@
 							"  pm.test(\"Status code of people is 200 i.e Successful \", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"findPersonNames();\r",
 							"pm.test(\"Contain 82 characters from the Star Wars characters 9th page\", function () {\r",
 							"   var people = pm.response.json();\r",
@@ -5997,7 +6093,12 @@
 					"script": {
 						"id": "e254a74f-94e4-40d7-9814-8c5facd3874b",
 						"exec": [
-							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"  pm.test(\"Status code of Star War Characters 10th page is 404 i.e Page not found \", function () {\r",
 							"    pm.response.to.have.status(404);\r",
 							"});\r",
@@ -6040,6 +6141,12 @@
 					"script": {
 						"id": "c4544be1-9e5e-41a9-b18f-fe868e8bfeb4",
 						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"pm.test(\"Status code is 404 or page not found non existing character page\", function () {\r",
 							"    pm.response.to.have.status(404);\r",
 							"});"
@@ -6052,6 +6159,35 @@
 				"method": "GET",
 				"header": [],
 				"url": "https://swapi.dev/api/people/84"
+			},
+			"response": []
+		},
+		{
+			"name": "Starwar People  non exisitng Character\"not number\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5a58f419-d401-40ae-8805-ef86bb51fc3a",
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
+							"pm.test(\"Status code is 404 or page not found non existing character page\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://swapi.dev/api/people/a"
 			},
 			"response": []
 		},
@@ -6087,6 +6223,12 @@
 							"//     var jsonData = pm.response.json();\r",
 							"//     pm.expect(count).to.eql(16);\r",
 							"// });\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"pm.test(\"All 16 details fields Contain in a particular Character.\", function () {\r",
 							"        pm.expect(getAllDetailsKeys().length).to.eql(16);\r",
 							"        // pm.expect(count).to.eql(16);\r",
@@ -6102,7 +6244,7 @@
 							"}\r",
 							"else{\r",
 							"    console.log('not a match');\r",
-							"    checkKey=\"same members\"\r",
+							"    checkKey=\"not a match\"\r",
 							"} \r",
 							"       pm.expect(checkKey).to.eql(\"same members\");\r",
 							"});\r",
@@ -6434,7 +6576,12 @@
 							"     }\r",
 							"    getPlanetsNames();\r",
 							"   \r",
-							" \r",
+							" pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"pm.test(\"conformed 10 Star Wars planets in a Star War planets 1st page\", function () {\r",
 							"    var numb = getPlanetsNames().length;\r",
 							"    pm.expect(numb).to.eql(10);\r",
@@ -7112,7 +7259,12 @@
 							"    // });\r",
 							"     }\r",
 							"    getPlanetsNames();\r",
-							"   \r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});    \r",
 							" \r",
 							"pm.test(\"conformed 10 Star Wars planets in a Star War planets 2nd page\", function () {\r",
 							"    var numb = getPlanetsNames().length;\r",
@@ -7717,7 +7869,12 @@
 							"     }\r",
 							"    getPlanetsNames();\r",
 							"   \r",
-							" \r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});  \r",
 							"pm.test(\"conformed 10 Star Wars planets in a Star War planets 3rd page\", function () {\r",
 							"    var numb = getPlanetsNames().length;\r",
 							"    pm.expect(numb).to.eql(10);\r",
@@ -8318,9 +8475,15 @@
 							"    //      pm.expect(nameArray.length).to.eql(10);\r",
 							"    // });\r",
 							"     }\r",
+							"\r",
 							"    getPlanetsNames();\r",
 							"   \r",
-							" \r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});  \r",
 							"pm.test(\"conformed 10 Star Wars planets in a Star War planets 4th page\", function () {\r",
 							"    var numb = getPlanetsNames().length;\r",
 							"    pm.expect(numb).to.eql(10);\r",
@@ -8922,7 +9085,12 @@
 							"    // });\r",
 							"     }\r",
 							"    getPlanetsNames();\r",
-							"   \r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});    \r",
 							" \r",
 							"pm.test(\"conformed 10 Star Wars planets in a Star War planets 5th page\", function () {\r",
 							"    var numb = getPlanetsNames().length;\r",
@@ -9525,7 +9693,12 @@
 							"    // });\r",
 							"     }\r",
 							"    getPlanetsNames();\r",
-							"   \r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"});    \r",
 							" \r",
 							"pm.test(\"conformed 10 Star Wars planets in a Star War planets 6th page\", function () {\r",
 							"    var numb = getPlanetsNames().length;\r",
@@ -10076,46 +10249,6 @@
 			"response": []
 		},
 		{
-			"name": "Star Wars planet Page 7",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4161e4a8-1441-408f-8e32-893bcc5e337f",
-						"exec": [
-							"pm.test(\"Status code of non existing planets 7th page is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://swapi.dev/api/planets?page=7",
-					"protocol": "http",
-					"host": [
-						"swapi",
-						"dev"
-					],
-					"path": [
-						"api",
-						"planets"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "7"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get a Planet details",
 			"event": [
 				{
@@ -10148,6 +10281,12 @@
 							"//     var jsonData = pm.response.json();\r",
 							"//     pm.expect(count).to.eql(16);\r",
 							"// });\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"pm.test(\"All 14 details fields Contain in a particular Planet.\", function () {\r",
 							"        pm.expect(getAllDetailsKeys().length).to.eql(14);\r",
 							"        // pm.expect(count).to.eql(16);\r",
@@ -10163,7 +10302,7 @@
 							"}\r",
 							"else{\r",
 							"    console.log('not a match');\r",
-							"    checkKey=\"same members\"\r",
+							"    checkKey=\"not a match\"\r",
 							"} \r",
 							"       pm.expect(checkKey).to.eql(\"same members\");\r",
 							"});\r",
@@ -10427,6 +10566,35 @@
 			"response": []
 		},
 		{
+			"name": "Get a Planet details for non existing planet \"\\d\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "723b60b1-0440-4181-b36b-bfb6677eb822",
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
+							"pm.test(\"Status code is 404 for randon number planet\" , function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://swapi.dev/api/planets/d"
+			},
+			"response": []
+		},
+		{
 			"name": "Non existing Planet Page 7",
 			"event": [
 				{
@@ -10434,6 +10602,12 @@
 					"script": {
 						"id": "d4b7e24a-7781-4b25-9f91-7fa72e753e87",
 						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 400ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+							"}); \r",
 							"pm.test(\"Status code is 404 or page not found non existing Planet page\", function () {\r",
 							"    pm.response.to.have.status(404);\r",
 							"});"
